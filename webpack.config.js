@@ -1,17 +1,26 @@
 const path = require('path');
 
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const TsConfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
+
 module.exports = {
-  mode: 'development',
-  entry: './src/main.ts',
+  entry: {
+    app: './src/app'
+  },
 
   output: {
-    filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
-    publicPath: '/dist'
+    filename: '[name].js',
   },
+
   resolve: {
-    extensions: ['.ts', '.js']
+    extensions: ['.ts', '.js'],
+    plugins: [
+      new TsConfigPathsPlugin()
+    ]
   },
+
   module: {
     rules: [
       {
@@ -21,7 +30,16 @@ module.exports = {
       }
     ]
   },
+
   watchOptions: {
     ignored: /node_modules/
-  }
+  },
+
+  plugins: [
+    new CleanWebpackPlugin(),
+    new HtmlWebpackPlugin({
+      chunks: ['app'],
+      template: path.resolve(__dirname, './src/index.html')
+    })
+  ]
 };
