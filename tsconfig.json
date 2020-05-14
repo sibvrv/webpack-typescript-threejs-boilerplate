@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "lib": [
+      "ESNext",
+      "ES6",
+      "ES2015",
+      "ES2020",
+      "DOM"
+    ],
+    "target": "ES5",
+    "module": "ESNext",
+    "noImplicitAny": true,
+    "strict": true
+  }
+}
