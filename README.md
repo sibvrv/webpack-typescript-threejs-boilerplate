@@ -7,7 +7,7 @@ Minimal Webpack 4 boilerplate with TypeScript, Three.js, TSLint, Hot Module Repl
 ## Installation
 
 ```
-git clone git@github.com:sibvrv/webpack-typescript-threejs-boilerplate --depth=1
+git clone https://github.com/sibvrv/webpack-typescript-threejs-boilerplate.git --depth=1
 npm i
 ```
 
